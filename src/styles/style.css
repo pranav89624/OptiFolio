@@ -100,7 +100,7 @@ ul {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background-color: #3232FB;
   color: var(--color-light);
   border: 2px solid var(--color-primary);
 }
@@ -458,8 +458,7 @@ code {
 }
 
 .project-tech li {
-  background-color: rgba(99, 102, 241, 0.1);
-  color: var(--color-primary);
+  background-color: rgba(99, 101, 241, 0.534);
   padding: var(--space-xs) var(--space-sm);
   border-radius: 20px;
   font-size: var(--text-xs);
@@ -723,5 +722,101 @@ code {
   .btn {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* Education Styles */
+.education {
+  padding: var(--space-xxl) 0;
+  background-color: var(--color-dark);
+}
+
+.education-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-primary);
+  transform: translateX(-50%);
+}
+
+.education-card {
+  position: relative;
+  width: calc(50% - var(--space-lg));
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--space-xl);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.education-card:nth-child(odd) {
+  margin-right: auto;
+}
+
+.education-card:nth-child(even) {
+  margin-left: auto;
+}
+
+.education-date {
+  position: absolute;
+  top: -15px;
+  font-weight: 700;
+  background: var(--color-dark);
+  padding: 0 var(--space-sm);
+  color: var(--color-primary);
+}
+
+.education-content h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.institution {
+  margin-bottom: var(--space-md);
+  font-weight: 500;
+}
+
+.achievements li {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.achievements li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .education-timeline::before {
+    left: 30px;
+  }
+  
+  .education-card {
+    width: calc(100% - 60px);
+    margin-left: 60px !important;
+  }
+  
+  .education-date {
+    left: -85px;
+    top: 20px;
   }
 }
