@@ -11,6 +11,7 @@ OptiFolio is a high-performance, modern portfolio template for developers, built
 ## ✨ Features
 
 - **Perfect Lighthouse scores** (100/100)
+![Lighthouse Scores](Lighthouse_OptiFolio.webp)
 - **Sleek dark theme** with purple accents
 - **Mobile-first** responsive layout
 - **CSS-only** animations and interactions
@@ -170,6 +171,58 @@ Add project cards in `src/_includes/partials/projects.njk`:
 ### Footer
 
 - Edit `footer.njk` for copyright, attribution, and additional links.
+
+---
+
+## 🚀 Deployment
+
+### Netlify
+1. [Sign up](https://app.netlify.com/signup) and connect your GitHub account.
+2. Click **New Site from Git** and select your OptiFolio repository.
+3. Set build command: `npm run build`
+4. Set output directory: `_site`
+5. Click **Deploy Site**.
+
+### Vercel
+1. [Sign up](https://vercel.com/signup) and import your repo.
+2. Set build command: `npm run build`
+3. Set output directory: `_site`
+4. Click **Deploy**.
+
+### GitHub Pages
+- Not recommended for 11ty-based dynamic sites, but possible with some workarounds.
+
+#### Live Demo
+[View OptiFolio Live](https://optifolio.vercel.app)
+
+#### Troubleshooting
+- If you see a blank page, check the output directory and asset paths.
+- Review the deploy logs for missing dependencies or build errors.
+
+---
+
+## 🛠 Tech Stack
+
+- **[Eleventy (11ty)](https://www.11ty.dev/)**: A fast, modern static site generator.
+- **[Nunjucks](https://mozilla.github.io/nunjucks/)**: A powerful templating engine for HTML.
+- **CSS**: Custom styles with variables, responsive design, and animations.
+- **[Vanilla JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: Minimal JavaScript for interactions.
+
+> Learn more about static site generators and CSS animations through [11ty resources](https://www.11ty.dev/docs/) and [CSS Tricks](https://css-tricks.com/).
+
+---
+
+## ♿ Accessibility Statement
+
+OptiFolio is designed with accessibility in mind:
+- Semantic HTML5 ensures screen readers can parse content effectively.
+- ARIA roles are applied where necessary for better navigation.
+- High contrast colors are used for readability.
+
+### Tips for Customization:
+- Maintain sufficient color contrast when changing theme colors.
+- Test your site’s accessibility using tools like [Lighthouse](https://developers.google.com/web/tools/lighthouse) or [axe](https://www.deque.com/axe/).
+- Ensure all interactive elements (e.g., buttons, links) are keyboard-navigable.
 
 ---
 
