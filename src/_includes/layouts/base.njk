@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-  
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/styles/style.css" as="style">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" as="font" crossorigin>
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="/styles/style.css">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
-</head>
-<body>
-  {% include "partials/header.njk" %}
-  
-  <main>
-    {{ content | safe }}
-  </main>
-  
-  {% include "partials/footer.njk" %}
-  
-  <!-- Smooth scroll polyfill for Safari -->
-  <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js" defer></script>
-  
-  <!-- Custom JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Mobile menu toggle
-      const menuBtn = document.querySelector('.menu-btn');
-      const nav = document.querySelector('nav');
-      
-      if (menuBtn && nav) {
-        menuBtn.addEventListener('click', () => {
-          nav.classList.toggle('active');
-          menuBtn.classList.toggle('open');
-        });
-      }
-      
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+  <head>
+    <!-- Character encoding and viewport settings for responsive design -->
+    <meta charset="UTF-8">
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dynamic title and description using Nunjucks template variables -->
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}"> <!-- Preload critical resources for better performance -->
+    <!-- Preload CSS to reduce render-blocking --> <link
+    rel="preload" href="/styles/style.css" as="style"> <!-- Preload fonts to prevent layout shifts -->
+    <link
+    rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      as="font"
+      crossorigin> <!-- Main stylesheet -->
+    <link
+    rel="stylesheet" href="/styles/style.css"> <!-- Favicon using SVG data URI with developer emoji -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22
+        font-size=%2290%22>👨‍💻</text></svg>">
+  </head>
+  <body>
+    <!-- Site header with navigation -->
+    {% include "partials/header.njk" %}
+    <main>
+      <!-- Page content injected here from individual templates -->
+      {{ content | safe }}
+    </main>
+    <!-- Site footer -->
+    {% include "partials/footer.njk" %}
+    <!-- External library for smooth scrolling support in Safari -->
+    <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js" defer></script>
+    <!-- Custom JavaScript for interactive features -->
+    <script>
+      // Wait for DOM to be fully loaded before executing scripts
+      document.addEventListener('DOMContentLoaded', () => { // Mobile menu toggle functionality
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+        // Check if mobile menu elements exist before adding event listeners
+        if (menuBtn && nav) {
+          menuBtn.addEventListener('click', () => { // Toggle mobile menu visibility and hamburger animation
+            nav.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+          });
+        }
+        // Smooth scrolling for internal anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) { // Prevent default jump behavior
+            e.preventDefault();
+            // Smoothly scroll to target element
+            document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
           });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
