@@ -1,30 +1,50 @@
-# DevFolio - Modern Developer Portfolio Template
+# OptiFolio - Modern Developer Portfolio Template
 
-A high-performance portfolio template built with Eleventy featuring:
-- Perfect Lighthouse scores (100/100)
-- Sleek dark theme with purple accents
-- Mobile-first responsive design
-- CSS-only animations and interactions
-- Semantic HTML5 and accessible markup
+OptiFolio is a high-performance, modern portfolio template for developers, built with [Eleventy (11ty)](https://www.11ty.dev/). It features a sleek dark theme, mobile-first responsive design, and CSS-only animations for a delightful user experience.
+
+---
+
+> **If you like this project, please ⭐ star and fork the repository to support its development!**  
+
+---
+
+## ✨ Features
+
+- **Perfect Lighthouse scores** (100/100)
+- **Sleek dark theme** with purple accents
+- **Mobile-first** responsive layout
+- **CSS-only** animations and interactions
+- **Semantic HTML5** and accessible markup
+- **Minimal vanilla JS** (only 2.6KB)
+- **Easy content customization** via Nunjucks templates
+
+> **Customization:**  
+> To enable, disable, or tweak features, modify the relevant partials under `src/_includes/partials/`. For example, to switch color accents or adjust performance features, edit `src/styles/style.css` or the animation code in HTML/CSS partials.
 
 ## 🚀 Quick Start
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/yourusername/devfolio.git
-cd devfolio
+git clone https://github.com/pranav89624/OptiFolio.git
+cd OptiFolio
 
 # 2. Install dependencies
 npm install
 
 # 3. Start development server
-npm run dev
+npm run start
 
 # 4. Build for production
 npm run build
 ```
 
+> **Customization:**  
+> Use your own repository link in the `git clone` step.  
+> If you wish to deploy to a different output directory, adjust the `output` in `.eleventy.js`.  
+> You can add custom npm scripts in your `package.json` for additional workflows.
+
 ## 🏗 Project Structure
+
 ```
 src/
 ├── _includes/
@@ -44,30 +64,44 @@ src/
 .eleventy.js                  # 11ty configuration
 ```
 
+> **Customization:**  
+> - Add, remove, or rename sections by editing, duplicating, or deleting partials in `src/_includes/partials/`.  
+> - To reorganize the site structure, modify `base.njk` and update navigation in `header.njk`.  
+> - Add global styles or new CSS files in `src/styles/`.  
+> - Place your favicon or other static assets in the appropriate directory and update HTML references.
+
 ## 🎨 Customization Guide
+
 ### Personalize Content
 
-```
+Edit the hero section with your name and tagline:
+```html
 <!-- src/_includes/partials/hero.njk -->
 <h1 class="hero-title">Your Name Here</h1>
 <p class="hero-subtitle">Your professional tagline</p>
 ```
+> **Customization:**  
+> Change the text, add images, or insert extra markup for social links or call-to-action buttons as needed.
 
 ### Modify Design
-Edit CSS variables in src/styles/style.css:
-```
+
+Tweak theme colors and fonts in `src/styles/style.css`:
+```css
 :root {
-  --color-primary: #6366f1;       /* Brand color */
-  --color-dark: #0f172a;          /* Dark background */
-  --color-light: #f8fafc;         /* Light text */
+  --color-primary: #6366f1;
+  --color-dark: #0f172a;
+  --color-light: #f8fafc;
   --font-base: 'Inter', sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
 ```
+> **Customization:**  
+> Adjust the hex values for your brand, import your own fonts, or add new CSS variables for additional theming.
 
 ### Add Projects
-```
-<!-- src/_includes/partials/projects.njk -->
+
+Add project cards in `src/_includes/partials/projects.njk`:
+```html
 <article class="project-card">
   <div class="project-image">
     <img src="/your-project.webp" alt="Project" loading="lazy">
@@ -82,19 +116,65 @@ Edit CSS variables in src/styles/style.css:
   </div>
 </article>
 ```
-
-## ⚡ Performance Optimizations
-```
-Technique              	    Implementation Details
-
-Critical CSS        	  Inlined in base template
-Image Loading	          Native lazy loading with fallback
-Font Handling	          Preloaded with crossorigin
-JavaScript	          Only 2.6KB vanilla JS (menu/scroll)
-Animations	          Hardware-accelerated CSS transforms
-```
+> **Customization:**  
+> Duplicate the `<article>` block for more projects, update image sources, edit descriptions, and list relevant technologies.  
+> You can also add new fields or links (e.g., demo, case study) as needed.
 
 ---
+
+## ⚡ Performance Optimizations
+
+| Technique         | Implementation Details                   |
+|-------------------|------------------------------------------|
+| Critical CSS      | Inlined in base template (`base.njk`)    |
+| Image Loading     | Native lazy loading (`loading="lazy"`)   |
+| Font Handling     | Preload in `<head>` with `crossorigin`   |
+| JavaScript        | Minimal, inlined in `base.njk`           |
+| Animations        | Hardware-accelerated CSS transforms      |
+
+> **Customization:**  
+> - To add or remove optimizations, tweak the `<head>` section in your layout, the CSS in `styles/`, or the minimal JS at the bottom of `base.njk`.  
+> - Replace or add font providers, change preload strategies, or use your own image CDN.
+
+---
+
+## 🤝 Section-by-Section Customization
+
+### Header & Navigation
+
+- Edit `src/_includes/partials/header.njk` to update nav links.  
+- To add a new section, create a new partial and add a link in this file.
+
+### Skills
+
+- Update your skills in `skills.njk` by editing the list items or adding/removing cards.
+
+### Education
+
+- Add your degrees and certifications by editing or duplicating the `<article>` blocks in the education section partial.
+
+### Projects
+
+- See above in "Add Projects" for details.
+
+### Testimonials
+
+- Edit `testimonials.njk` to add, update, or remove testimonials.  
+- Each testimonial is a `<blockquote class="testimonial-card">` block.
+
+### Call to Action (CTA)
+
+- Update your contact details or call-to-action text in `cta.njk`.  
+- Add direct email, social links, or forms as needed.
+
+### Footer
+
+- Edit `footer.njk` for copyright, attribution, and additional links.
+
+---
+
 - 🛠 Built with Eleventy by [Pranav](https://github.com/pranav89624)
 - 🎨 Designed for developers
 - 📱 Fully responsive on all devices
+
+---

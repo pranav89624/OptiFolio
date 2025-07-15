@@ -1,6 +1,9 @@
 module.exports = function(eleventyConfig) {
   // Passthrough copy
   eleventyConfig.addPassthroughCopy("src/styles");
+
+  // Copy images to output
+  eleventyConfig.addPassthroughCopy("src/images");
   
   // Watch CSS for changes
   eleventyConfig.addWatchTarget("src/styles/");
@@ -8,7 +11,8 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "public"
+      output: "_site",
+      includes: "_includes",
     },
     markdownTemplateEngine: "njk"
   };
